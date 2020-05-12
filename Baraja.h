@@ -2,7 +2,6 @@
 #include <string>
 #include<stdlib.h>
 #include<time.h>
-#define f 10
 typedef struct{
 	int num;
 	std::string palo;
