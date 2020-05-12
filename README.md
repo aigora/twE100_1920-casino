@@ -5,6 +5,7 @@ Casino Virtual
 ## Integrantes del equipo
 
 Miguel González Feter, TuBro100tifico
+Daniel Méndez Sánchez, danimensan
 
 ## Objetivos del trabajo
 
