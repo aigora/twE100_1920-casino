@@ -4,7 +4,6 @@
 #include "Tragaperras.h"
 #include "BlackJack.h"
 #include "Poker.h"
-//probar que funciona
 int main(){
 char rep,juego;
 
