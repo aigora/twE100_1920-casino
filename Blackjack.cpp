@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string>
-#include "C:\Users\USUARIO\Documents\GitHub\twE100_1920-casino\Fichas.h"
-#include "C:\Users\USUARIO\Documents\GitHub\twE100_1920-casino\Baraja.h"
+#include "C:\Users\migue\Documents\GitHub\twE100_1920-casino\Baraja.h"
+#include "C:\Users\migue\Documents\GitHub\twE100_1920-casino\Fichas.h"
 
 int apostadas;
-int i=0, j=0;
-carta baraja[i];
-int Suma;
+int j=0, i;
+carta baraja[20];
+int Suma, SumaC;
+char repetir;
 void Comprobacion(carta n);
 carta SacarCarta(carta n);
 void MostrarCarta(carta n);
@@ -52,10 +53,10 @@ do
 if (Suma < 21){
 	if (Suma > SumaC){
 		printf ("Enhorabuena, has ganado.");
-		Fichas = SumarFichas (Fichas, apostadas);
+		fichas = SumarFichas (fichas, apostadas);
 	}else{
 		printf ("Lo siento, has perdido");
-		Fichas = RestarFischas (Fichas, apostadas)
+		fichas = RestarFichas (fichas, apostadas);
 	}
 }
 	
