@@ -4,7 +4,8 @@
 #include <time.h>
 #include "Baraja.h"
 #include "seleccion_de_ juego.h"
-
+#include "Fichas.h"
+#include "Poker.h"
 
 int main(){
 char rep,juego;
@@ -29,6 +30,7 @@ char rep,juego;
 				
 			case 'D':
 			case 'd':
+				Poker();
 				break;	
 			default:
 				puts ("Me temo que aqu\241 no tenemos esa opci\242n se\244or...");
