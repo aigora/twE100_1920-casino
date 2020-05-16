@@ -4,10 +4,10 @@ typedef struct{
 	int ok;
 } carta;
 
+
 carta SeleccionCarta (void);
 carta SeleccionCarta (void){
 	carta carta;
-	srand (time (NULL));
 	carta.ok= rand() % 4+1;
 	carta.num= rand () % 12+1;
 	if(carta.ok==1){
@@ -25,3 +25,5 @@ carta SeleccionCarta (void){
 	return carta;
 	
 }
+
+
