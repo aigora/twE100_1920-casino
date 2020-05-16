@@ -9,7 +9,7 @@ carta SeleccionCarta (void);
 carta SeleccionCarta (void){
 	carta carta;
 	carta.ok= rand() % 4+1;
-	carta.num= rand () % 12+1;
+	carta.num= rand () % 13+1;
 	if(carta.ok==1){
 		carta.palo="picas";
 	}
