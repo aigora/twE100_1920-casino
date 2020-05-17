@@ -17,7 +17,7 @@ void MostrarCarta(carta n);
 bool iguales= true;
 int main(){
 	srand (time (NULL));
-	printf ("Bienvenido a la mesa de Blackjack.\n Jugara contra la casa.\n Para darle ventaja empezara usted las apuestas y la casa siempre aceptara\n");
+	printf ("\t\t\t\t\tBienvenido a la mesa de Blackjack.\n Jugara contra la casa.\n Para darle ventaja empezara usted las apuestas y la casa siempre aceptara\n");
 	MostrarFichas(fichas);
 	printf("¿Cuantas fichas desea apostar?\n");
 	scanf ("%d", &apostadas);
@@ -26,12 +26,6 @@ int main(){
 	
 	
 	
-
-		
-		
-
-
-
 
 do
 	{	repetir = 'no';
