@@ -48,7 +48,7 @@ do
 				printf("\nSe ha pasado de 21, su as pasa a valer 1.");
 				printf ("\nEl valor de sus cartas es:\n %d", Suma);
 				goto OtraCarta;
-				}else NULL;
+				}else l++;
 			}
 			printf("\nLo siento, has perdido");
 			repetir == 'no';
