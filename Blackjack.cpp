@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string>
+#include <iostream>
 #include "C:\Users\migue\Documents\GitHub\twE100_1920-casino\Baraja.h"
 #include "C:\Users\migue\Documents\GitHub\twE100_1920-casino\Fichas.h"
 
 int apostadas;
-int j=0, i;
+int j=0, i, k=0, l=0;
 carta baraja[20];
 int Suma, SumaC;
 char repetir;
@@ -20,6 +21,7 @@ int main(){
 	MostrarFichas(fichas);
 	printf("¿Cuantas fichas desea apostar?\n");
 	scanf ("%d", &apostadas);
+	fflush (stdin);
 	printf ("La primera carta es: ");
 	
 	
@@ -32,30 +34,38 @@ int main(){
 
 
 do
-	{
+	{	repetir = 'no';
 		baraja[i] = SacarCarta (baraja[i]);
 		MostrarCarta(baraja[i]);
-		if (baraja[i].num <10){
+		if (baraja[i].num <10 && baraja[i].num != 1){
 		Suma = Suma + baraja[i].num;
 		}else Suma = Suma+10;
 		printf ("\nEl valor de sus cartas es:\n %d", Suma);
 		i++;
-		if (Suma < 21){
-		printf ("\n\n\n¿Desea recibir otra carta?   ");
+		if (Suma <= 21){
+		OtraCarta: printf ("\n\n\n¿Desea recibir otra carta?\n");
 		scanf ("%c", &repetir);
 		fflush (stdin);
 		}else {
-			printf("Lo siento, has perdido");
-			break;
+			for (k=0; k <= i; k++){
+				if(baraja[l].num == 1){
+				Suma= Suma-9;
+				l++;
+				printf("\nSe ha pasado de 21, su as pasa a valer 1.");
+				printf ("\nEl valor de sus cartas es:\n %d", Suma);
+				goto OtraCarta;
+				}else NULL;
+			}
+			printf("\nLo siento, has perdido");
+			repetir == 'no';
 		}
-		
 	} while (repetir == 's' || repetir == 'S');
-if (Suma < 21){
-	if (Suma > SumaC){
-		printf ("Enhorabuena, has ganado.");
+if (Suma <= 21){
+	if (Suma > SumaC || Suma == SumaC){
+		printf ("\n\nEnhorabuena, has ganado.");
 		fichas = SumarFichas (fichas, apostadas);
 	}else{
-		printf ("Lo siento, has perdido");
+		printf ("\n\nLo siento, has perdido");
 		fichas = RestarFichas (fichas, apostadas);
 	}
 }
