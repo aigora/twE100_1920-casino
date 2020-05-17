@@ -3,8 +3,8 @@
 #include <time.h>
 #include <string>
 #include <iostream>
-#include "C:\Users\migue\Documents\GitHub\twE100_1920-casino\Baraja.h"
-#include "C:\Users\migue\Documents\GitHub\twE100_1920-casino\Fichas.h"
+#include "C:\Users\USUARIO\Documents\GitHub\twE100_1920-casino\Baraja.h"
+#include "C:\Users\USUARIO\Documents\GitHub\twE100_1920-casino\Fichas.h"
 
 int apostadas;
 int j=0, i, k=0, l=0;
@@ -34,7 +34,7 @@ do
 		if (baraja[i].num <10 && baraja[i].num != 1){
 		Suma = Suma + baraja[i].num;
 		}else Suma = Suma+10;
-		printf ("\nEl valor de sus cartas es:\n %d", Suma);
+		printf ("\nEl valor de sus cartas es:\n %d\n", Suma);
 		i++;
 		if (Suma <= 21){
 		OtraCarta: printf ("\n\n\n¿Desea recibir otra carta?\n");
@@ -46,24 +46,62 @@ do
 				Suma= Suma-9;
 				l++;
 				printf("\nSe ha pasado de 21, su as pasa a valer 1.");
-				printf ("\nEl valor de sus cartas es:\n %d", Suma);
+				printf ("\nEl valor de sus cartas es:\n %d\n", Suma);
 				goto OtraCarta;
 				}else l++;
 			}
-			printf("\nLo siento, has perdido");
 			repetir == 'no';
 		}
 	} while (repetir == 's' || repetir == 'S');
+	do{ l= i;
+		baraja [i] = SacarCarta (baraja[i]);
+		MostrarCarta(baraja[i]);
+		if (baraja[i].num <10 && baraja[i].num !=1){
+			SumaC = SumaC + baraja[i].num;
+		}else SumaC = SumaC + 10;
+		printf("\nEl valor de las cartas del Crupier es:\n %d", SumaC);
+		i++;
+		if (SumaC > 21){
+			for (k=0; k<=i; k++){
+				if (baraja[l].num ==1){
+					SumaC = SumaC - 9;
+					l++;
+					printf ("\nLa suma del Crupier se pasa de 21, su has pasa a valer 1.");
+					printf ("\nEl valor de las cartas del Crupier es:\n %d", SumaC);
+					break;
+				}else l++;
+			}
+		}
+		if (SumaC <=17){
+			printf ("\nEl Crupier recibe otra carta, debido a que su suma es menor que 17.");
+		}
+	}while (SumaC<=17);
+if (SumaC <= 21){	
 if (Suma <= 21){
-	if (Suma > SumaC || Suma == SumaC){
+	if (Suma >= SumaC){
 		printf ("\n\nEnhorabuena, has ganado.");
 		fichas = SumarFichas (fichas, apostadas);
+		MostrarFichas(fichas);
 	}else{
 		printf ("\n\nLo siento, has perdido");
 		fichas = RestarFichas (fichas, apostadas);
+		MostrarFichas(fichas);
 	}
+}else{
+		printf ("\n\nLo siento, has perdido");
+		fichas = RestarFichas (fichas, apostadas);
+		MostrarFichas(fichas);}
+}else {
+if (Suma <=21){
+	printf ("\n\nEnhorabuena, has ganado");
+	fichas = SumarFichas (fichas, apostadas);
+	MostrarFichas(fichas);
+}else {
+	printf("\n\nLo siento, has perdido");
+	fichas = RestarFichas (fichas, apostadas);
+	MostrarFichas(fichas);
 }
-	
+}
 	return 969;
 }
 
