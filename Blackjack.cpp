@@ -3,8 +3,8 @@
 #include <time.h>
 #include <string>
 #include <iostream>
-#include "C:\Users\USUARIO\Documents\GitHub\twE100_1920-casino\Baraja.h"
-#include "C:\Users\USUARIO\Documents\GitHub\twE100_1920-casino\Fichas.h"
+#include "Baraja.h"
+#include "Fichas.h"
 
 int apostadas;
 int j=0, i, k=0, l=0;
