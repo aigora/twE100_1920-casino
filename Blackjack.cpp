@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string>
-#include "C:\Users\USUARIO\Documents\GitHub\twE100_1920-casino\Baraja.h"
-#include "C:\Users\USUARIO\Documents\GitHub\twE100_1920-casino\Fichas.h"
+#include "C:\Users\migue\Documents\GitHub\twE100_1920-casino\Baraja.h"
+#include "C:\Users\migue\Documents\GitHub\twE100_1920-casino\Fichas.h"
 
 int apostadas;
 int j=0, i;
