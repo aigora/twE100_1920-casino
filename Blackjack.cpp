@@ -10,7 +10,7 @@ int apostadas;
 int j=0, i, k=0, l=0;
 carta baraja[20];
 int Suma, SumaC;
-char repetir;
+char repetir, repetirJ;
 void Comprobacion(carta n);
 carta SacarCarta(carta n);
 void MostrarCarta(carta n);
@@ -19,6 +19,7 @@ int main(){
 	srand (time (NULL));
 	printf ("\t\t\t\t\tBienvenido a la mesa de Blackjack.\n Jugara contra la casa.\n Para darle ventaja empezara usted las apuestas y la casa siempre aceptara\n");
 	MostrarFichas(fichas);
+do{ Suma = 0; SumaC = 0;
 	printf("¿Cuantas fichas desea apostar?\n");
 	scanf ("%d", &apostadas);
 	fflush (stdin);
@@ -101,7 +102,10 @@ if (Suma <=21){
 	fichas = RestarFichas (fichas, apostadas);
 	MostrarFichas(fichas);
 }
-}
+}printf("\n¿Desea jugar otra ronda?\n");
+scanf("%c", &repetirJ);
+fflush(stdin);
+}while (repetirJ == 's' || repetirJ == 'S');
 	return 969;
 }
 
