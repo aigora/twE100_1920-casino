@@ -8,7 +8,7 @@
 
 int apostadas;
 int j=0, i, k=0, l=0;
-carta baraja[20];
+carta baraja[200];
 int Suma, SumaC;
 char repetir, repetirJ;
 void Comprobacion(carta n);
@@ -19,10 +19,16 @@ int main(){
 	srand (time (NULL));
 	printf ("\t\t\t\t\tBienvenido a la mesa de Blackjack.\n Jugara contra la casa.\n Para darle ventaja empezara usted las apuestas y la casa siempre aceptara\n");
 	MostrarFichas(fichas);
-do{ Suma = 0; SumaC = 0;
+do{ Suma = 0; SumaC = 0; apostadas =0;
+	do {
 	printf("¿Cuantas fichas desea apostar?\n");
 	scanf ("%d", &apostadas);
 	fflush (stdin);
+	if(apostadas > fichas){
+		printf("No dispone de tantas fichas");
+		MostrarFichas(fichas);
+	}
+	}while (apostadas > fichas);
 	printf ("La primera carta es: ");
 	
 	
