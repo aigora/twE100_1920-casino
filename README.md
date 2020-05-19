@@ -1,5 +1,6 @@
 # Título del trabajo
-Casino Virtual
+Casino virtual
+
 
 
 ## Integrantes del equipo
@@ -11,5 +12,5 @@ Daniel Méndez Sánchez, danimensan
 
 ## Objetivos del trabajo
 
-Crear un casino virtual funcional, que disponga de cuatro juegos distintos: ruleta, blackjack, tragaperras y poker.
+Crear un casino virtual funcional, que disponga de tres juegos distintos: ruleta, blackjack y póker.
 Disponiendo de fichas virtuales que se podran apostar y así ganar o perder más, según se juegue.
