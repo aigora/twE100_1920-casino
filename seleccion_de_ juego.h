@@ -7,9 +7,8 @@ char opcion (void) {
 	char letra;
 	puts ("Elija el juego al que quiere jugar");
 	puts ("A. Ruleta");
-	puts ("B. Tragaperras");
+	puts ("B. Poker (Texas Hold'em)");
 	puts ("C. BlackJack");
-	puts ("D. Poker (Texas Hold'em)");
 	scanf ("%c", &letra);
 	fflush (stdin);
 	return letra;}
