@@ -23,16 +23,12 @@ char rep,juego;
 				
 			case 'B':
 			case 'b':
+				Poker();
 				break;
 				
 			case 'C':
 			case 'c':
 				BlackJack();
-				break;
-				
-			case 'D':
-			case 'd':
-				Poker();
 				break;	
 			default:
 				puts ("Me temo que aqu\241 no tenemos esa opci\242n se\244or...");
