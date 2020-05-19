@@ -18,3 +18,4 @@ void MostrarFichas(int fichas);
 void MostrarFichas(int fichas){
 	printf("\n\nAhora mismo tienes %d fichas\n\n", fichas);
 }
+
