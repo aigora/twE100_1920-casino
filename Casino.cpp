@@ -6,6 +6,7 @@
 #include "seleccion_de_ juego.h"
 #include "Fichas.h"
 #include "Poker.h"
+#include "BlackJack.h"
 
 int main(){
 char rep,juego;
@@ -26,6 +27,7 @@ char rep,juego;
 				
 			case 'C':
 			case 'c':
+				BlackJack();
 				break;
 				
 			case 'D':
