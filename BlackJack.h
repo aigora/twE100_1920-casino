@@ -9,17 +9,19 @@ bool igualesB= true;
 
 void BlackBJack(void);
 void BlackJack(void){
-	printf ("\t\t\t\t\tBienvenido a la mesa de BlackBjack.\n Jugara contra la casa.\n Para darle ventaja empezara usted las apuestas y la casa siempre aceptara\n");
+	printf ("\t\t\t\t\tBienvenido a la mesa de BlackBjack.\n------------------------------------------------------------------------------------------------------------------------\n Jugara contra la casa.\n Para darle ventaja empezara usted las apuestas y la casa siempre aceptara\n------------------------------------------------------------------------------------------------------------------------\n");
 	MostrarFichas(fichas);
-do{ jB=iB;
+do{ 
+	jB=iB;
 	Suma = 0; SumaC = 0; apostadas =0;
 	jB=0, kB=0, lB=0;
 	do {
-	printf("¿Cuantas fichas desea apostar?\n");
+	printf(" ¿Cuantas fichas desea apostar?\n");
 	scanf ("%d", &apostadas);
 	fflush (stdin);
+	system("cls");
 	if(apostadas > fichas){
-		printf("No dispone de tantas fichas");
+		printf(" No dispone de tantas fichas\n");
 		MostrarFichas(fichas);
 	}
 	}while (apostadas > fichas);
@@ -35,12 +37,13 @@ do
 		if (barajaB[iB].num <10 && barajaB[iB].num != 1){
 		Suma = Suma + barajaB[iB].num;
 		}else Suma = Suma+10;
-		printf ("\nEl valor de sus cartas es:\n %d\n", Suma);
+		printf ("\nEl valor de sus cartas es:\n %d\n\n", Suma);
 		iB++;
 		if (Suma <= 21){
 		OtraCarta: printf ("\n\n\n¿Desea recibir otra carta?\n");
 		scanf ("%c", &repetir);
 		fflush (stdin);
+		system("cls");
 		}else {
 			for (kB=0; kB <= iB; kB++){
 				if(barajaB[lB].num == 1){
@@ -107,8 +110,11 @@ if(fichas>0){
 
 printf("\n¿Desea jugar otra ronda?\n");
 scanf("%c", &repetirJ);
-fflush(stdin);}else repetirJ = false;
-
+fflush(stdin);
+system("cls");
+}else{
+ repetirJ = false;
+	system("cls");}
 }while (repetirJ == 's' || repetirJ == 'S');
 }
 
