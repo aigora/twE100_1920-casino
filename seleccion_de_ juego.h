@@ -19,6 +19,7 @@ char repeticion (void){
 	puts ("\n\n\250Desea jugar a otra cosa\77");
 	scanf ("%c", &tecla);
 	fflush (stdin);
+	system("cls");
 	return tecla;
 }
 
