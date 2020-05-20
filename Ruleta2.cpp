@@ -11,7 +11,7 @@ void espera(int segundos);
 int main ()
 {
  char c;
- int n=0,m[DIM],i,premio,k=4;
+ int n=0,i,premio,k=4;
  
 srand(time(NULL));
  
@@ -29,9 +29,9 @@ switch (c) {
 case 'B' :
 case 'b':
  do {
- printf ("1. Apostar a la primera columna \t 1-4-7-10-13-16-19-22-25-28-31-34\n");
- printf ("2. Apostar a la segunda columna \t 2-5-8-11-14-17-20-23-26-29-32-35\n");
- printf ("3. Apostar a la tercera columna \t 3-6-9-12-15-18-21-24-27-30-33-36\n");
+ printf ("1. Apostar a la primera columna \t (1,4,7,10,13,16,19,22,25,28,31,34)\n");
+ printf ("2. Apostar a la segunda columna \t (2,5,8,11,14,17,20,23,26,29,32,35)\n");
+ printf ("3. Apostar a la tercera columna \t (3,6,9,12,15,18,21,24,27,30,33,36)\n");
  scanf ("%d",&n);}while(n!=1 && n!=2 && n!=3);
  break;
  
@@ -39,11 +39,10 @@ case 'C' :
 case 'c':
  do {
 	printf ("1. Apostar falta \t (1-18)\n");
- 	printf ("2. Apostar pasa \t (19-36)");
- for (i=0;i<3;i++)
- scanf ("%d",&m[i]);
+ 	printf ("2. Apostar pasa \t (19-36)\n");
+	scanf ("%d",&n);
  }
- while((m[0]<=0 || m[0]>36) || (m[1]<=0 || m[1]>36) || (m[2]<=0 || m[2]>36));
+ while(n!=1 && n!=2);
  break;
  case 'D':
  case 'd':
@@ -87,29 +86,34 @@ if (premio==0) {
  
 switch ( c ) {
  case 'A' :
+ case 'a':
  if ((n==1 && premio%2 == 0) || (n==2 && premio%2 == 1))
  printf ("Enhorabuena, has ganado \n");
  else printf ("Lo siento, has perdido \n");
  break;
  
 case 'B' :
+case 'b':
  if ((n==1 && premio%3 == 1) || (n==2 && premio%3 == 2) || (n==3 && premio%2 == 0))
  printf ("Enhorabuena, has ganado \n");
  else printf ("Lo siento, has perdido \n");
  break;
  
 case 'C' :
- if ((m[0]==premio) || (m[1]==premio) || (m[2]==premio))
+case 'c':
+ if ((n==1 && premio%2 == 0) || (n==2 && premio%2 == 1))
  printf ("Enhorabuena, has ganado \n");
  else printf ("Lo siento, has perdido \n");
  break;
  
 case 'D' :
- if (n==premio)
+case 'd':
+ if ((n==1 && premio%3 == 1) || (n==2 && premio%3 == 2) || (n==3 && premio%2 == 0))
  printf ("Enhorabuena, has ganado\n");
  else printf ("Lo siento, has perdido \n");
  break;
 case 'E' :
+case 'e':
  if (n==premio)
  printf ("Enhorabuena, has ganado\n");
  else printf ("Lo siento, has perdido \n");
@@ -133,12 +137,12 @@ printf ("¿Que apuesta quieres realizar?\n");
 printf ("A. Apostar pares o impares \n");
 printf ("B. Apostar columnas \n");
 printf ("C. Apostar falta o pasa \n");
-printf ("D. Apostar docenas");
+printf ("D. Apostar docenas\n");
 printf ("E- Apostar numero\n");
- 
+
 scanf ("%c",&c);
  
-system("cls"); } while (c!='A' && c!='B' && c!='C' && c!='D');
+system("cls"); } while (c!='A' && c!='a' && c!='B' && c!='b' && c!='C' && c!='c' && c!='D' && c!='d' && c!='E' && c!='e');
  return c;
 }
  
