@@ -51,7 +51,7 @@ case 'c':
   	printf ("1. Apostar a la primera docena \t (1,2,3,4,5,6,7,8,9,10,11,12)\n");
  	printf ("2. Apostar a la segunda docena \t (13,14,15,16,17,18,19,20,21,22,23,24)\n");
  	printf ("3. Apostar a la tercera docena \t (25,26,27,28,29,30,31,32,33,34,35,36)\n");
- 	scanf ("%d",&n);}while(n!=1 && n!=2 && n!=3);
+ 	scanf ("%d",&n);
   }while(n!=1 && n!=2 && n!=3);
 break;
  
@@ -130,8 +130,8 @@ printf ("Bienvenido a la ruleta.\n\n");
  
 printf ("¿Que apuesta quieres realizar?\n");
  
-printf ("A. Apostar pares o impares \n") 
-printf ("B. Apostar columnas \n") 
+printf ("A. Apostar pares o impares \n");
+printf ("B. Apostar columnas \n");
 printf ("C. Apostar falta o pasa \n");
 printf ("D. Apostar docenas");
 printf ("E- Apostar numero\n");
