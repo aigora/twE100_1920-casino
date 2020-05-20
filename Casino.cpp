@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string>
 #include <time.h>
+#include <vector>
 #include "Baraja.h"
 #include "seleccion_de_ juego.h"
 #include "Fichas.h"
@@ -9,6 +10,7 @@
 #include "BlackJack.h"
 
 int main(){
+srand (time (NULL));
 char rep,juego;
 	do{
 	
@@ -18,7 +20,7 @@ char rep,juego;
 		{
 			case 'A':
 			case 'a':
-			puts ("jaja");		
+		
 				break;
 				
 			case 'B':
@@ -37,7 +39,7 @@ char rep,juego;
 	} while (rep == 's' || rep == 'S');
 
 	cerrar ();
-	return 0;
+	return 101;
 }
 
 
