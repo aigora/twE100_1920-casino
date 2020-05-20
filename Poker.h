@@ -1,4 +1,4 @@
-carta baraja[10];
+carta baraja[200];
 int i=0, j=0, apuesta=0;
 void Comprobacion(carta n);
 carta SacarCarta(carta n);
@@ -27,11 +27,11 @@ char jugar, apostar, repetirP;
 
 void Poker(void);
 void Poker(void){
-	srand (time (NULL));
 	carta carta01, carta02, carta03, carta04, carta05, carta11, carta12, carta21, carta22;
 	printf ("Bienvenido a la mesa de poker.\n Jugara contra la casa.\n Para darle ventaja empezará usted las apuestas y la casa siempre aceptará\n");
 	MostrarFichas(fichas);
-do{	printf("La ciega son 50 fichas. ¿Aceptas?\n");
+do{	i=j;
+	printf("La ciega son 50 fichas. ¿Aceptas?\n");
 	scanf ("%c", &jugar);
 	fflush(stdin);
 	if(jugar == 'S' || jugar == 's'){
@@ -86,7 +86,7 @@ fflush(stdin);}else repetirP = false;
 
 void Comprobacion(carta n){
 	baraja[i] = n;
-	for (j =0; j <= i; j++){
+	for (j; j <= i; j++){
 		if(n.num == baraja[j].num && n.ok == baraja[j].ok && i!= j) {
 		iguales = true;
 		break;}
@@ -516,8 +516,7 @@ bool EscR(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 }}
 
 int CartaAP(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
-	int k;
-	bool imp;
+	int k, z;
 	carta jugada[7];
 	jugada[0] = q;
 	jugada[1] = w;
@@ -528,16 +527,18 @@ int CartaAP(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 	jugada[6] = u;
 	
 	for(k=0; k<7; k++){
-		if(q.num==jugada[k].num){imp = true; break;
-		} 
-		else if(w.num==jugada[k].num) imp = false;
+		if(q.num==jugada[k].num) z=1;
+		else if(w.num==jugada[k].num) z=2;
 	}
-	if (imp == true) return q.num;
-	else return w.num;
+	if (z=1)return q.num;
+	else if (z=2)return w.num;
+	else{z= CartaA(q, w);
+		return z;
+	}
 }
 
 int CartaAE(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
-	int p, g, h, l;
+	int p, g, h, l, z;
 	carta jugada[7];
 	jugada[0] = q;
 	jugada[1] = w;
@@ -555,7 +556,7 @@ int CartaAE(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 			if(jugada[g].num == jugada[h].num-1){
 	for(l=0; l< 7; l++){
 			if(jugada[h].num == jugada[l].num-1){
-					return q.num;
+					z=1;
 					break;
 									}else ;
 								}
@@ -565,7 +566,32 @@ int CartaAE(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 				}
 
 
-}else return w.num;
+}else{for(p=0; p<7; p++){
+			if(w.num == jugada[p].num-1){
+	for(g=0; g< 7; g++){
+			if(jugada[p].num == jugada[g].num-1){
+	for(h=0; h< 7; h++){
+			if(jugada[g].num == jugada[h].num-1){
+	for(l=0; l< 7; l++){
+			if(jugada[h].num == jugada[l].num-1){
+					z=2;
+					break;
+									}else ;
+								}
+							}else ;
+						}
+					}else ;
+				}
+
+
+}else;	
+} 
+}
+if (z=1)return q.num;
+	else if (z=2)return w.num;
+	else{z= CartaA(q, w);
+		return z;
+	}
 }}
 
 int CartaA(carta q, carta w){
