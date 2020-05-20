@@ -1,6 +1,6 @@
 int apostadas;
 int jB=0, iB, kB=0, lB=0;
-carta barajaB[200];
+carta barajaB[2000];
 int Suma, SumaC;
 char repetir, repetirJ;
 void ComprobacionB(carta n);
