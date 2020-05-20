@@ -1,4 +1,4 @@
-carta baraja[200];
+carta baraja[2000];
 int i=0, j=0, apuesta=0;
 void Comprobacion(carta n);
 carta SacarCarta(carta n);
