@@ -82,13 +82,13 @@ do{	i=j;
 	fichas= RestarFichas(fichas, apuesta);
 	MostrarFichas(fichas);}
 	if(fichas>0){
-printf("\n¿Desea jugar otra ronda?\n");
-scanf("%c", &repetirP);
-fflush(stdin);
-system("cls");
-}else{
- repetirP = false;
- system("cls");
+	printf("\n¿Desea jugar otra ronda?\n");
+	scanf("%c", &repetirP);
+	fflush(stdin);
+	system("cls");
+	}else{
+ 	repetirP = false;
+ 	system("cls");
 	}}while (repetirP == 's' || repetirP == 'S');
 }
 
