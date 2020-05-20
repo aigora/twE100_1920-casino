@@ -1,6 +1,6 @@
 int apostadas;
 int jB=0, iB, kB=0, lB=0;
-carta barajaB[2000];
+carta barajaB[200];
 int Suma, SumaC;
 char repetir, repetirJ;
 void ComprobacionB(carta n);
@@ -9,10 +9,10 @@ bool igualesB= true;
 
 void BlackBJack(void);
 void BlackJack(void){
-	srand (time (NULL));
 	printf ("\t\t\t\t\tBienvenido a la mesa de BlackBjack.\n Jugara contra la casa.\n Para darle ventaja empezara usted las apuestas y la casa siempre aceptara\n");
 	MostrarFichas(fichas);
-do{ Suma = 0; SumaC = 0; apostadas =0;
+do{ jB=iB;
+	Suma = 0; SumaC = 0; apostadas =0;
 	jB=0, kB=0, lB=0;
 	do {
 	printf("¿Cuantas fichas desea apostar?\n");
@@ -115,7 +115,7 @@ fflush(stdin);}else repetirJ = false;
 
 void ComprobacionB(carta n){
 	baraja[iB] = n;
-	for (jB =0; jB <= iB; jB++){
+	for (jB; jB <= iB; jB++){
 		if(n.num == barajaB[jB].num && n.ok == baraja[jB].ok && iB!= jB) {
 		igualesB = true;
 		break;}
