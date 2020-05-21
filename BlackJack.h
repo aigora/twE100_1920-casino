@@ -77,7 +77,7 @@ do
 			}
 		}
 		if (SumaC <=17){
-			printf ("\nEl Crupier recibe otra carta, debido a que su suma es menor que 17.");
+			printf ("\nEl Crupier recibe otra carta, debido a que su suma es menor que 17.\n");
 		}
 	}while (SumaC<=17);
 if (SumaC <= 21){	
