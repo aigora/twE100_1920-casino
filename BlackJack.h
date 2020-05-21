@@ -9,14 +9,14 @@ bool igualesB= true;
 
 void BlackBJack(void);
 void BlackJack(void){
-	printf ("\t\t\t\t\tBienvenido a la mesa de BlackBjack.\n------------------------------------------------------------------------------------------------------------------------\n Jugara contra la casa.\n Para darle ventaja empezara usted las apuestas y la casa siempre aceptara\n------------------------------------------------------------------------------------------------------------------------\n");
+	printf ("\t\t\t\t\tBienvenido a la mesa de BlackBjack.\n------------------------------------------------------------------------------------------------------------------------\n Jugara contra la casa.\n Para darle ventaja empezar\240 usted apostando y la casa siempre aceptar\240\n------------------------------------------------------------------------------------------------------------------------\n");
 	MostrarFichas(fichas);
 do{ 
 	jB=iB;
 	Suma = 0; SumaC = 0; apostadas =0;
 	jB=0, kB=0, lB=0;
 	do {
-	printf(" ¿Cuantas fichas desea apostar?\n");
+	printf("\250Cu\240ntas fichas desea apostar?\n");
 	scanf ("%d", &apostadas);
 	fflush (stdin);
 	system("cls");
@@ -40,7 +40,7 @@ do
 		printf ("\nEl valor de sus cartas es:\n %d\n\n", Suma);
 		iB++;
 		if (Suma <= 21){
-		OtraCarta: printf ("\n\n\n¿Desea recibir otra carta?\n");
+		OtraCarta: printf ("\n\n\n\250Desea recibir otra carta?\n");
 		scanf ("%c", &repetir);
 		fflush (stdin);
 		system("cls");
@@ -70,7 +70,7 @@ do
 				if (barajaB[lB].num ==1){
 					SumaC = SumaC - 9;
 					lB++;
-					printf ("\nLa suma del Crupier se pasa de 21, su has pasa a valer 1.");
+					printf ("\nLa suma del Crupier se pasa de 21, su as pasa a valer 1.");
 					printf ("\nEl valor de las cartas del Crupier es:\n %d", SumaC);
 					break;
 				}else lB++;
@@ -108,7 +108,7 @@ if (Suma <=21){
 }
 if(fichas>0){
 
-printf("\n¿Desea jugar otra ronda?\n");
+printf("\n\250Desea jugar otra ronda?\n");
 scanf("%c", &repetirJ);
 fflush(stdin);
 system("cls");
