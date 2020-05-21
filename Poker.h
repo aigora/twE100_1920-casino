@@ -153,7 +153,7 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 	v = ComprobarValor(q, w, t, y, u, i, o);
 	c = ComprobarValor(e, r, t, y, u, i, o);
 	printf("\n%d %d", v, c);
-	if(v>c){
+	if(v>c || (v==1 && c!=1)){
 		printf("\n\nEnhorabuena, ha ganado");
 		fichas= SumarFichas(fichas,apuesta);
 		MostrarFichas(fichas);
@@ -162,7 +162,7 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 		if(v>1 && v<9 && v != 5){
 			v = CartaAP(q, w, t, y, u, i, o);
 			c = CartaAP(e, r, t, y, u, i, o);
-			if(v>c){
+			if(v>c || (v==1 && c!= 1)){
 			printf("\n\nEnhorabuena, ha ganado");
 			fichas= SumarFichas(fichas,apuesta);
 			MostrarFichas(fichas);
@@ -176,7 +176,7 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 		else if(v>=9 || v==5){
 			v = CartaAE(q, w, t, y, u, i, o);
 			c = CartaAE(e, r, t, y, u, i, o);
-			if(v>c){
+			if(v>c || (v==1 && c!= 1)){
 			printf("\n\nEnhorabuena, ha ganado");
 			fichas= SumarFichas(fichas,apuesta);
 			MostrarFichas(fichas);
@@ -190,12 +190,12 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 		else{
 			v = CartaA(q, w);
 			c = CartaA(e, r);
-			if(v>c){
+			if(v>c || (v==1 && c!=1)){
 			printf("\n\nEnhorabuena, ha ganado");
 			fichas= SumarFichas(fichas,apuesta);
 			MostrarFichas(fichas);
 			}
-			else if(v<c){
+			else if(c>v || (c==1 && v!=1)){
 			printf("\n\nLo siento, has perdido.");
 			fichas= RestarFichas(fichas, apuesta);
 			MostrarFichas(fichas);
@@ -525,7 +525,7 @@ bool EscR(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 }}
 
 int CartaAP(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
-	int k, z;
+	int k, l, z;
 	carta jugada[7];
 	jugada[0] = q;
 	jugada[1] = w;
@@ -536,7 +536,16 @@ int CartaAP(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 	jugada[6] = u;
 	
 	for(k=0; k<7; k++){
-		if(q.num==jugada[k].num) z=1;
+		if(q.num==jugada[k].num){
+		z=1;
+		for(l=0;l<7;l++){
+			if(w.num == jugada[l].num && l!=k){
+				if(w.num > q.num || (w.num == 1 && q.num != 1)){
+				
+				z=2;
+				break;}
+			}
+		}}
 		else if(w.num==jugada[k].num) z=2;
 	}
 	if (z=1)return q.num;
@@ -604,7 +613,7 @@ if (z=1)return q.num;
 }}
 
 int CartaA(carta q, carta w){
-	if(q.num > w.num) return q.num;
+	if(q.num > w.num || (q.num==1 && w.num != 1)) return q.num;
 	else return w.num;
 }
 
