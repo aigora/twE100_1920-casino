@@ -61,7 +61,7 @@ case 'E' :
 case 'e':
  do {
  	apuestaR= ApuestaR();
- printf ("Elija el numero al que desea apostar \n");
+ printf ("Elija el n\243mero al que desea apostar \n");
  scanf ("%d",&n);
  fflush(stdin);
  }
@@ -70,7 +70,7 @@ case 'e':
  
 system("cls");
  
-printf ("\nEl numero que ha salido en la ruleta es:\n\n");
+printf ("\nEl n\243mero que ha salido en la ruleta es:\n\n");
  
 for(i=1;i<=100;i++) rand();  
 premio = rand() % 37;       
@@ -79,7 +79,7 @@ espera (k);
  
 system("cls");
  
-printf ("\nEl numero que ha salido en la ruleta es:\n\n");
+printf ("\nEl n\243mero que ha salido en la ruleta es:\n\n");
  
 printf ("\t%d\n\n",premio);
  
@@ -149,7 +149,7 @@ case 'e':
  MostrarFichas(fichas);}
  break;
  
-}printf("\n¿Desea jugar otra ronda?\n");
+}printf("\n\250Desea jugar otra ronda?\n");
 scanf("%c", &repetirR);
 fflush(stdin);
 system("cls");
@@ -161,13 +161,13 @@ system("cls");
 char presentacion(void){
  char c;
 do {
-printf ("¿Que apuesta quieres realizar?\n");
+printf ("\250Qu\202 apuesta quieres realizar?\n");
  
 printf ("A. Apostar pares o impares \n");
 printf ("B. Apostar columnas \n");
 printf ("C. Apostar falta o pasa \n");
 printf ("D. Apostar docenas\n");
-printf ("E- Apostar numero\n");
+printf ("E- Apostar n\243mero\n");
 
 scanf ("%c",&c);
 fflush (stdin);
@@ -185,7 +185,7 @@ void espera(int segundos)
  while((Seg2-Seg1) < segundos){
  if(clock()%400<10){
  system("cls");
- printf ("\nEl numero que ha salido en la ruleta es:\n\n\t%d",rand() % 37);
+ printf ("\nEl n\243mero que ha salido en la ruleta es:\n\n\t%d",rand() % 37);
  }
  Seg2=(int)clock()/CLOCKS_PER_SEC;
  }
@@ -194,7 +194,7 @@ void espera(int segundos)
 int ApuestaR(void){
 	int x;
 	do{
-	printf("¿Cuantas fichas quieres apostar?\n");
+	printf("\250Cu\240ntas fichas quieres apostar?\n");
 	scanf("%d", &x);
 	fflush(stdin);
 	if(x > fichas){
