@@ -9,7 +9,7 @@ bool igualesB= true;
 
 void BlackBJack(void);
 void BlackJack(void){
-	printf ("\t\t\t\t\tBienvenido a la mesa de BlackBjack.\n------------------------------------------------------------------------------------------------------------------------\n Jugara contra la casa.\n Para darle ventaja empezar\240 usted apostando y la casa siempre aceptar\240\n------------------------------------------------------------------------------------------------------------------------\n");
+	printf ("\t\t\t\t\tBienvenido a la mesa de Blackjack.\n------------------------------------------------------------------------------------------------------------------------\n Jugar\240 contra la casa.\n Para darle ventaja empezar\240 usted apostando y la casa siempre aceptar\240\n------------------------------------------------------------------------------------------------------------------------\n");
 	MostrarFichas(fichas);
 do{ 
 	jB=iB;
