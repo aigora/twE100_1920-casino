@@ -28,11 +28,11 @@ char jugar, apostar, repetirP;
 void Poker(void);
 void Poker(void){
 	carta carta01, carta02, carta03, carta04, carta05, carta11, carta12, carta21, carta22;
-	printf ("\t\t\t\t\tBienvenido a la mesa de poker.\n------------------------------------------------------------------------------------------------------------------------\n Jugará contra la casa.\n Para darle ventaja empezará usted las apuestas y la casa siempre aceptará\n");
-	printf ("\n El valor de las jugadas es el siguiente (de mayor a menor):\n 1.Escalera Real\n 2.Escalera de Color\n 3.Poker\n 4.Full\n 5.Color\n 6.Escalera\n 7.Trío\n 8.Doble Pareja\n 9.Pareja\n 10.Carta Alta\n\n En caso de empate gana la jugada mas alta.\n------------------------------------------------------------------------------------------------------------------------");
+	printf ("\t\t\t\t\tBienvenido a la mesa de poker.\n------------------------------------------------------------------------------------------------------------------------\n Jugar\240 contra la casa.\n Para darle ventaja empezar\240 usted las apuestas y la casa siempre aceptar\240\n");
+	printf ("\n El valor de las jugadas es el siguiente (de mayor a menor):\n 1.Escalera Real\n 2.Escalera de Color\n 3.Poker\n 4.Full\n 5.Color\n 6.Escalera\n 7.Tr\241o\n 8.Doble Pareja\n 9.Pareja\n 10.Carta Alta\n\n En caso de empate gana la jugada mas alta.\n------------------------------------------------------------------------------------------------------------------------");
 	MostrarFichas(fichas);
 do{	i=j;
-	printf("La ciega son 50 fichas. ¿Aceptas?\n");
+	printf("La ciega son 50 fichas. \250Acepta?\n");
 	scanf ("%c", &jugar);
 	fflush(stdin);
 	system("cls");
@@ -62,7 +62,7 @@ do{	i=j;
 		apuesta = apuesta+Apostar();
 		system("cls");
 		if(apostar == 's' || apostar == 'S'){
-			printf ("\n'Se muestra la última carta...'");
+			printf ("\n'Se muestra la \243ltima carta...'");
 			printf ("\n\nSobre la mesa estan las cartas:\n");
 			MostrarCarta(carta01); MostrarCarta(carta02); MostrarCarta(carta03); MostrarCarta(carta04); MostrarCarta(carta05);
 			MostrarMano(carta11,carta12);
@@ -82,7 +82,7 @@ do{	i=j;
 	fichas= RestarFichas(fichas, apuesta);
 	MostrarFichas(fichas);}
 	if(fichas>0){
-	printf("\n¿Desea jugar otra ronda?\n");
+	printf("\n\250Desea jugar otra ronda?\n");
 	scanf("%c", &repetirP);
 	fflush(stdin);
 	system("cls");
@@ -117,25 +117,25 @@ void MostrarCarta(carta n){
 
 int Apostar (void){
 	int x;
-	printf("\n\n¿Quieres apostar?");
+	printf("\n\n\250Quiere apostar?");
 	scanf ("%c", &apostar);
 	fflush(stdin);
 	do {if(apostar == 's' || apostar == 'S'){
 		x=0;
-		printf("¿Cuanto apuestas?");
+		printf("\250Cuanto apuesta?");
 		scanf ("%d", &x);
 		if (x > fichas-apuesta){
-			printf("\nNo tienes tantas fichas");
+			printf("\nNo tiene tantas fichas");
 			MostrarFichas(fichas-apuesta);
 		}
 		fflush(stdin);
-	}else{ printf ("Te retiras de la ronda");
+	}else{ printf ("Se usted retira de la ronda");
 	}}while (x > fichas-apuesta) ;
 	return x;
 }
 
 void MostrarMano(carta n, carta m){
-	printf ("\n\nTu mano:\n--------------------------------\n");
+	printf ("\n\nSu mano:\n--------------------------------\n");
 	MostrarCarta(n); MostrarCarta(m);
 	printf("\n--------------------------------");
 }
@@ -152,7 +152,7 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 	printf("\n--------------------------------");
 	v = ComprobarValor(q, w, t, y, u, i, o);
 	c = ComprobarValor(e, r, t, y, u, i, o);
-	printf("\n%d %d", v, c);
+	//printf("\n%d %d", v, c);
 	if(v>c || (v==1 && c!=1)){
 		printf("\n\nEnhorabuena, ha ganado");
 		fichas= SumarFichas(fichas,apuesta);
@@ -162,13 +162,13 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 		if(v>1 && v<9 && v != 5){
 			v = CartaAP(q, w, t, y, u, i, o);
 			c = CartaAP(e, r, t, y, u, i, o);
-			if(v>c || (v==1 && c!= 1)){
+			if((v>c && c!=1) || (v==1 && c!= 1)){
 			printf("\n\nEnhorabuena, ha ganado");
 			fichas= SumarFichas(fichas,apuesta);
 			MostrarFichas(fichas);
 			}
 			else{
-			printf("\n\nLo siento, has perdido.");
+			printf("\n\nLo siento, ha perdido.");
 			fichas= RestarFichas(fichas, apuesta);
 			MostrarFichas(fichas);
 			}
@@ -176,13 +176,13 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 		else if(v>=9 || v==5){
 			v = CartaAE(q, w, t, y, u, i, o);
 			c = CartaAE(e, r, t, y, u, i, o);
-			if(v>c || (v==1 && c!= 1)){
+			if((v>c && c!=1) || (v==1 && c!= 1)){
 			printf("\n\nEnhorabuena, ha ganado");
 			fichas= SumarFichas(fichas,apuesta);
 			MostrarFichas(fichas);
 			}
 			else{
-			printf("\n\nLo siento, has perdido.");
+			printf("\n\nLo siento, ha perdido.");
 			fichas= RestarFichas(fichas, apuesta);
 			MostrarFichas(fichas);
 			}
@@ -190,13 +190,13 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 		else{
 			v = CartaA(q, w);
 			c = CartaA(e, r);
-			if(v>c || (v==1 && c!=1)){
+			if((v>c && c!=1) || (v==1 && c!=1)){
 			printf("\n\nEnhorabuena, ha ganado");
 			fichas= SumarFichas(fichas,apuesta);
 			MostrarFichas(fichas);
 			}
 			else if(c>v || (c==1 && v!=1)){
-			printf("\n\nLo siento, has perdido.");
+			printf("\n\nLo siento, ha perdido.");
 			fichas= RestarFichas(fichas, apuesta);
 			MostrarFichas(fichas);
 			}
@@ -209,7 +209,7 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 			MostrarFichas(fichas);
 			}
 			else if(v<c){
-			printf("\n\nLo siento, has perdido.");
+			printf("\n\nLo siento, ha perdido.");
 			fichas= RestarFichas(fichas, apuesta);
 			MostrarFichas(fichas);
 			}
@@ -218,7 +218,7 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 		
 	}
 	else{
-	printf("\n\nLo siento, has perdido.");
+	printf("\n\nLo siento, ha perdido.");
 	fichas= RestarFichas(fichas, apuesta);
 	MostrarFichas(fichas);
 	}}
@@ -618,6 +618,6 @@ int CartaA(carta q, carta w){
 }
 
 int CartaB(carta q, carta w){
-	if(q.num < w.num) return q.num;
+	if(q.num <= w.num) return q.num;
 	else return w.num;
 }
