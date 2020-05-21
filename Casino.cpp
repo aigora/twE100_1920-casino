@@ -44,7 +44,7 @@ SeguirJugando:	juego= opcion();
 	if(fichas>500){
 		printf("\t\t\t\t\t\tENHORABUENA\n\n Ha ganado usted %d fichas", fichas-500);
 	}else{
-		printf("\t\t\t\t\t\t¿ESTA SEGURO?\n\n Ha perdido usted %d fichas\n ¿Quiere seguir jugando?\n", 500-fichas);
+		printf("\t\t\t\t\t\t\250ESTA SEGURO?\n\n Ha perdido usted %d fichas\n \250Quiere seguir jugando?\n", 500-fichas);
 		scanf("%c", &rep);
 		fflush(stdin);
 		if(rep == 's' || rep == 'S'){
