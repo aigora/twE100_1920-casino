@@ -8,6 +8,7 @@
 #include "Fichas.h"
 #include "Poker.h"
 #include "BlackJack.h"
+#include "Ruleta.h"
 
 int main(){
 srand (time (NULL));
@@ -20,7 +21,8 @@ SeguirJugando:	juego= opcion();
 		{
 			case 'A':
 			case 'a':
-		
+				system("cls");
+				Ruleta();
 				break;
 				
 			case 'B':
