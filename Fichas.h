@@ -16,6 +16,6 @@ int SumarFichas (int fichas, int suma){
 
 void MostrarFichas(int fichas);
 void MostrarFichas(int fichas){
-	printf("\n\nAhora mismo tienes %d fichas\n\n", fichas);
+	printf("\n\nAhora mismo tiene %d fichas\n\n", fichas);
 }
 
