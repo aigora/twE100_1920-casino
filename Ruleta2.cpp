@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include "Fichas.H"
-#define DIM 20
+
  
 char presentacion();
 void espera(int segundos);
 int ApuestaR(void);
+char repetirR;
  
 int main ()
 {
@@ -14,7 +15,9 @@ int main ()
  int n=0,i,premio,k=4, apuestaR;
  
 srand(time(NULL));
- 
+
+do{
+
 c=presentacion ();
  
 switch (c) {
@@ -25,6 +28,7 @@ switch (c) {
  printf ("1. Apostar a los pares \n"); 
  printf ("2. Apostar a los impares\n");
  scanf ("%d",&n);}while(n!=1 && n!=2);
+ fflush(stdin);
  break;
  
 case 'B' :
@@ -35,6 +39,7 @@ case 'b':
  printf ("2. Apostar a la segunda columna \t (2,5,8,11,14,17,20,23,26,29,32,35)\n");
  printf ("3. Apostar a la tercera columna \t (3,6,9,12,15,18,21,24,27,30,33,36)\n");
  scanf ("%d",&n);}while(n!=1 && n!=2 && n!=3);
+ fflush(stdin);
  break;
  
 case 'C' :
@@ -44,6 +49,7 @@ case 'c':
 	printf ("1. Apostar falta \t (1-18)\n");
  	printf ("2. Apostar pasa \t (19-36)\n");
 	scanf ("%d",&n);
+	fflush(stdin);
  }
  while(n!=1 && n!=2);
  break;
@@ -55,6 +61,7 @@ case 'c':
  	printf ("2. Apostar a la segunda docena \t (13,14,15,16,17,18,19,20,21,22,23,24)\n");
  	printf ("3. Apostar a la tercera docena \t (25,26,27,28,29,30,31,32,33,34,35,36)\n");
  	scanf ("%d",&n);
+ 	fflush(stdin);
   }while(n!=1 && n!=2 && n!=3);
 break;
  
@@ -63,8 +70,8 @@ case 'e':
  do {
  	apuestaR= ApuestaR();
  printf ("Elija el numero al que desea apostar \n");
- 
-scanf ("%d",&n);
+ scanf ("%d",&n);
+ fflush(stdin);
  }
  while(n<=0 || n>36); break;
  }
@@ -151,10 +158,14 @@ case 'e':
  MostrarFichas(fichas);}
  break;
  
+}printf("\n¿Desea jugar otra ronda?\n");
+scanf("%c", &repetirR);
+fflush(stdin);
+}while (repetirR == 's' || repetirR == 'S');
+
+return 969;
 }
- system ("pause");
- return 0;
-}
+
  
 char presentacion()
  
@@ -173,6 +184,7 @@ printf ("D. Apostar docenas\n");
 printf ("E- Apostar numero\n");
 
 scanf ("%c",&c);
+fflush (stdin);
  
 system("cls"); } while (c!='A' && c!='a' && c!='B' && c!='b' && c!='C' && c!='c' && c!='D' && c!='d' && c!='E' && c!='e');
  return c;
@@ -195,8 +207,14 @@ void espera(int segundos)
 
 int ApuestaR(void){
 	int x;
-	printf("¿Cuantas fichas quieres apostar?");
+	do{
+	printf("¿Cuantas fichas quieres apostar?\n");
 	scanf("%d", &x);
 	fflush(stdin);
+	if(x > fichas){
+		printf("No dispone de tantas fichas\n");
+		MostrarFichas(fichas);
+	}
+	}while (x > fichas);
 	return x;
 }
