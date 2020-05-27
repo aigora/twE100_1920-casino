@@ -16,6 +16,7 @@ int	ComprobarEsc(carta q, carta w, carta e, carta r, carta t, carta y, carta u);
 int	ComprobarEsCo(carta q, carta w, carta e, carta r, carta t, carta y, carta u);
 int	ComprobarEsR(carta q, carta w, carta e, carta r, carta t, carta y, carta u);
 bool Esc(carta q, carta w, carta e, carta r, carta t, carta y, carta u);
+bool EsCo(carta q, carta w, carta e, carta r, carta t, carta y, carta u);
 bool EscR(carta q, carta w, carta e, carta r, carta t, carta y, carta u);
 int CartaAP(carta q, carta w, carta e, carta r, carta t, carta y, carta u);
 int CartaAE(carta q, carta w, carta e, carta r, carta t, carta y, carta u);
@@ -152,8 +153,8 @@ void FinDeRonda(carta q, carta w, carta e, carta r, carta t, carta y, carta u, c
 	printf("\n--------------------------------");
 	v = ComprobarValor(q, w, t, y, u, i, o);
 	c = ComprobarValor(e, r, t, y, u, i, o);
-	//printf("\n%d %d", v, c);
-	if(v>c || (v==1 && c!=1)){
+	printf("\n%d %d", v, c);
+	if(v>c) {
 		printf("\n\nEnhorabuena, ha ganado");
 		fichas= SumarFichas(fichas,apuesta);
 		MostrarFichas(fichas);
@@ -431,15 +432,14 @@ int ComprobarEsCo(carta q, carta w, carta e, carta r, carta t, carta y, carta u)
 	jugada[5] = y;
 	jugada[6] = u;
 	
-	escalera= Esc(q, w, e, r, t, y, u);
-	color= ComprobarColor(q, w, e, r, t, y, u);
-	if (escalera == true && color == 6) return 9;
+	escalera= EsCo(q, w, e, r, t, y, u);
+	if (escalera == true) return 9;
 	else return 0;
 }
 
 int ComprobarEsR(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 	int k, p, c=0, color;
-	bool pareja = false;
+	bool esr = false;
 	carta jugada[8];
 	jugada[0] = q;
 	jugada[1] = w;
@@ -449,9 +449,8 @@ int ComprobarEsR(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 	jugada[5] = y;
 	jugada[6] = u;
 	
-	pareja= EscR(q, w, e, r, t, y, u);
-	color= ComprobarColor(q, w, e, r, t, y, u);
-	if (pareja == true && color == 6) return 10;
+	esr= EscR(q, w, e, r, t, y, u);
+	if (esr == true) return 10;
 	else return 0;
 }
 
@@ -488,6 +487,39 @@ bool Esc(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 }else return false;
 }}}
 
+bool EsCo(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
+	int k, p, g, h, l;
+	carta jugada[7];
+	jugada[0] = q;
+	jugada[1] = w;
+	jugada[2] = e;
+	jugada[3] = r;
+	jugada[4] = t;
+	jugada[5] = y;
+	jugada[6] = u;
+	
+	for(k=0; k<7; k++){
+	for(p=0; p<7; p++){
+			if(jugada[k].num == jugada[p].num-1 && jugada[k].ok == jugada[p].ok){
+	for(g=0; g< 7; g++){
+			if(jugada[p].num == jugada[g].num-1 && jugada[p].ok == jugada[g].ok){
+	for(h=0; h< 7; h++){
+			if(jugada[g].num == jugada[h].num-1 && jugada[g].ok == jugada[h].ok){
+	for(l=0; l< 7; l++){
+			if(jugada[h].num == jugada[l].num-1 && jugada[h].ok == jugada[l].ok){
+					return true;
+					break;
+									}else ;
+								}
+							}else ;
+						}
+					}else ;
+				}
+
+
+}else return false;
+}}}
+
 bool EscR(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 	int k, p, g, h, l;
 	carta jugada[7];
@@ -502,13 +534,13 @@ bool EscR(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 	for(k=0; k<7; k++){
 		if(jugada[k].num == 10){
 	for(p=0; p<7; p++){
-			if(jugada[k].num == jugada[p].num-1){
+			if(jugada[k].num == jugada[p].num-1 && jugada[k].ok == jugada[p].ok){
 	for(g=0; g< 7; g++){
-			if(jugada[p].num == jugada[g].num-1){
+			if(jugada[p].num == jugada[g].num-1 && jugada[p].ok == jugada[g].ok){
 	for(h=0; h< 7; h++){
-			if(jugada[g].num == jugada[h].num-1){
+			if(jugada[g].num == jugada[h].num-1 && jugada[g].ok == jugada[h].num){
 	for(l=0; l< 7; l++){
-			if(jugada[l].num == 1){
+			if(jugada[l].num == 1 && jugada[h].ok == jugada[l].ok){
 					return true;
 					break;
 									}else;
@@ -525,7 +557,7 @@ bool EscR(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 }}
 
 int CartaAP(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
-	int k, l, z;
+	int k, l, z, x;
 	carta jugada[7];
 	jugada[0] = q;
 	jugada[1] = w;
@@ -536,7 +568,7 @@ int CartaAP(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 	jugada[6] = u;
 	
 	for(k=0; k<7; k++){
-		if(q.num==jugada[k].num){
+		if(q.num==jugada[k].num && k!= 0){
 		z=1;
 		for(l=0;l<7;l++){
 			if(w.num == jugada[l].num && l!=k){
@@ -546,13 +578,14 @@ int CartaAP(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
 				break;}
 			}
 		}}
-		else if(w.num==jugada[k].num) z=2;
+		else if(w.num==jugada[k].num){
+		 z=2;
+		 break;}
+		else x = CartaA(q,w);
 	}
-	if (z=1)return q.num;
-	else if (z=2)return w.num;
-	else{z= CartaA(q, w);
+	if (z=1 || x == q.num)return q.num;
+	else if (z=2 || x == w.num)return w.num;
 		return z;
-	}
 }
 
 int CartaAE(carta q, carta w, carta e, carta r, carta t, carta y, carta u){
@@ -613,7 +646,7 @@ if (z=1)return q.num;
 }}
 
 int CartaA(carta q, carta w){
-	if(q.num > w.num || (q.num==1 && w.num != 1)) return q.num;
+	if(q.num > w.num && w.num !=1 || (q.num==1 && w.num != 1)) return q.num;
 	else return w.num;
 }
 
